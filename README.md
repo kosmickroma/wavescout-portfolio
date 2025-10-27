@@ -1,6 +1,6 @@
 # 🌊 WaveScout - Multi-Source Job Aggregator
 
-> **Professional web scraping portfolio piece** showcasing advanced automation, anti-bot techniques, and production deployment capabilities.
+> **Professional web scraping portfolio piece** showcasing advanced automation, anti-bot techniques, hybrid cloud architecture, and production deployment capabilities.
 
 [![Live Demo](https://img.shields.io/badge/🌊_Live_Demo-Try_It_Now-blue?style=for-the-badge)](https://wavescout.onrender.com)
 [![Hire Me](https://img.shields.io/badge/💼_Available_for_Hire-Upwork-success?style=for-the-badge)](https://www.upwork.com/freelancers/~019e1234567890)
@@ -20,6 +20,7 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 - ✅ Handle dynamic content loading with Playwright
 - ✅ Build scalable web scrapers with 100% success rates
 - ✅ Create production-ready applications from scratch
+- ✅ Design hybrid cloud/local architectures
 - ✅ Deploy robust automation solutions
 
 ---
@@ -29,16 +30,20 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 ### 🕷️ **Advanced Web Scraping**
 - **100% success rate** across multiple job boards
 - Playwright-based automation for JavaScript-heavy sites
+- **Full-scrape architecture** - 1 browser session for all pages (lightning fast!)
 - Stealth techniques to avoid bot detection:
   - Custom user agents and browser fingerprints
   - Human-like scrolling and timing patterns
   - Intelligent retry logic and error handling
 
 ### 🔄 **Automated Job Discovery**
-- Background scheduler refreshes jobs every 3 hours
+- **Hybrid scraping model** - Local scrapers connect to cloud database
+- Intelligent refresh strategy:
+  - New searches: Full scrape (45+ jobs from multiple pages)
+  - Existing searches: Quick refresh (latest 10 jobs)
 - Real-time monitoring with auto-refresh
 - Intelligent deduplication across sources
-- Processes 40+ jobs per search in under 3 minutes
+- Processes 40+ jobs per search efficiently
 
 ### 🎛️ **Smart Filtering & Sorting**
 - Filter by source, salary range, location, easy apply
@@ -47,9 +52,10 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 - Mobile-responsive design
 
 ### 🔐 **Production-Ready Architecture**
+- **Hybrid cloud/local design** for optimal performance
 - Flask web framework with secure authentication
-- SQLAlchemy ORM for efficient data management
-- APScheduler for background task automation
+- PostgreSQL database (cloud-hosted on Render)
+- Local scrapers bypass free-tier limitations
 - Deployed on Render with 24/7 uptime
 - Clean, maintainable, documented code
 
@@ -63,7 +69,7 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 
 ### Job Search Interface
 ![Search](screenshots/create-search.png)
-*Simple, intuitive search creation - results in 2-3 minutes*
+*Simple, intuitive search creation - instant results if search exists*
 
 ### Job Listings with Advanced Filtering
 ![Listings](screenshots/job-listings.png)
@@ -81,7 +87,7 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 - Python 3.11
 - Flask (Web Framework)
 - SQLAlchemy (ORM)
-- APScheduler (Background Jobs)
+- PostgreSQL (Production Database)
 - Gunicorn (Production Server)
 
 **Scraping Engine:**
@@ -89,6 +95,7 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 - Custom stealth configuration
 - Dynamic content handling
 - Anti-detection measures
+- **Full-scrape mode** for maximum efficiency
 
 **Frontend:**
 - Tailwind CSS
@@ -97,7 +104,10 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 - Real-time updates
 
 **Infrastructure:**
-- Deployed on Render
+- **Hybrid cloud/local architecture**
+- Flask app deployed on Render (display only)
+- PostgreSQL on Render (cloud database)
+- Local scrapers (connect to cloud DB)
 - Environment-based configuration
 - Automated deployments via GitHub
 - UptimeRobot monitoring (99.9% uptime)
@@ -130,17 +140,26 @@ Different sites use different formats. I built:
 
 ### 4. **Scalability & Performance**
 Built for growth from day one:
-- Background job scheduling
-- Efficient database queries
-- Threaded scraping (parallelization ready)
-- Caching strategies
+- **Hybrid architecture** - Render hosts app, local machine scrapes
+- Efficient database queries with PostgreSQL
+- **Full-scrape pattern** - Open browser once for all pages
+- Intelligent refresh logic (full scrape vs quick refresh)
+- Shared search results across users
 
 ### 5. **Production Deployment**
 From local to live without issues:
-- Environment-based configuration
+- Environment-based configuration (.env for local, .env.production for cloud)
+- Cloud database accessible from local scrapers
 - Zero-downtime updates
 - Error logging and monitoring
 - Database migrations
+
+### 6. **Free Tier Optimization**
+Render's free tier has CPU/memory limits. I solved this with:
+- **Hybrid model** - Heavy scraping on local machine
+- Display-only cloud app (lightweight, fast)
+- Local scrapers connect to cloud PostgreSQL
+- Best of both worlds: free hosting + powerful scraping
 
 ---
 
@@ -149,13 +168,14 @@ From local to live without issues:
 | Metric | Result |
 |--------|--------|
 | **Scraping Success Rate** | 100% |
-| **Response Time** | ~2-3 seconds per search |
-| **Jobs per Search** | 40+ aggregated opportunities |
-| **Auto-Update Frequency** | Every 3 hours |
+| **Response Time** | Instant for existing searches |
+| **Jobs per Search** | 45+ aggregated opportunities |
+| **Auto-Update Frequency** | Hourly (via local scheduler) |
 | **Current Sources** | 2 (Indeed, Dice) |
 | **Planned Sources** | Monster, ZipRecruiter, LinkedIn, AngelList |
-| **Lines of Code** | ~2,500+ |
-| **Development Time** | 3 Days |
+| **Lines of Code** | ~3,000+ |
+| **Development Time** | 4 Days |
+| **Architecture** | Hybrid Cloud/Local |
 
 ---
 
@@ -166,7 +186,7 @@ From local to live without issues:
 I build **custom web scrapers, automation tools, and production applications** that solve real problems. WaveScout is part of my job search toolkit suite:
 
 - 🌊 **WaveScout** (This project) - Job aggregator
-- 💼 **JobFlow** - Application tracking system  
+- 💼 **JobFlow** - Application tracking system
 - 🧭 **Career Compass** - Career guidance platform
 
 **Next phase:** Integrating all three into one comprehensive job search platform.
@@ -198,6 +218,7 @@ I build **custom web scrapers, automation tools, and production applications** t
 - ✅ User authentication
 - ✅ Admin dashboards
 - ✅ Production deployment
+- ✅ Hybrid cloud/local architectures
 
 ---
 
@@ -208,6 +229,7 @@ I build **custom web scrapers, automation tools, and production applications** t
 - Expert in Playwright, Selenium, BeautifulSoup
 - Advanced anti-bot bypass techniques
 - Production deployment experience
+- **Hybrid architecture design** (cloud + local)
 - Clean, maintainable code
 
 ### ⚡ Fast & Reliable
@@ -245,9 +267,9 @@ I'm available for:
 
 ### Contact Me:
 
-📧 **Email:** [korykarp@gmail.com](mailto:korykarp@gmail.com)  
-💼 **LinkedIn:** [linkedin.com/in/koryrkarp](https://www.linkedin.com/in/koryrkarp/)  
-🌐 **Portfolio:** [linktr.ee/korykarp](https://linktr.ee/korykarp)  
+📧 **Email:** [korykarp@gmail.com](mailto:korykarp@gmail.com)
+💼 **LinkedIn:** [linkedin.com/in/koryrkarp](https://www.linkedin.com/in/koryrkarp/)
+🌐 **Portfolio:** [linktr.ee/korykarp](https://linktr.ee/korykarp)
 💚 **Upwork:** *Available for hire - message me!*
 
 ---
@@ -256,7 +278,8 @@ I'm available for:
 
 This is a **showcase repository** demonstrating my capabilities in:
 - Advanced web scraping techniques
-- Production application development  
+- Production application development
+- Hybrid cloud/local architecture design
 - Clean code architecture
 - Real-world problem solving
 
@@ -273,9 +296,11 @@ This is a **showcase repository** demonstrating my capabilities in:
 
 Want to learn more about how WaveScout works? I can discuss:
 
+- **Hybrid Architecture:** Why I split scraping (local) from hosting (cloud)
 - **Scraping Architecture:** How I handle Indeed, Dice, and other sites
+- **Full-Scrape Pattern:** Opening browser once for all pages (fast!)
 - **Anti-Bot Techniques:** Bypassing Cloudflare, reCAPTCHA, and rate limits
-- **Data Pipeline:** From scraping to database to frontend
+- **Data Pipeline:** From local scraper → cloud database → web app
 - **Deployment Process:** GitHub → Render with CI/CD
 - **Scalability Plan:** Adding 10+ sources without code rewrites
 
@@ -314,6 +339,7 @@ Whether you need:
 - A custom web scraper
 - Automation for your business
 - A production-ready web application
+- Hybrid cloud/local solutions
 - Technical consulting
 
 **I'd love to hear about your project!**
@@ -328,7 +354,7 @@ Whether you need:
 
 ### 🌊 WaveScout - Riding the Wave to Your Next Opportunity
 
-**Built with Python, Playwright, Flask & deployed on Render**
+**Built with Python, Playwright, Flask & deployed with hybrid cloud/local architecture**
 
 *Part of the JobSeeker Toolkit Suite*
 
