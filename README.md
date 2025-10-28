@@ -61,21 +61,6 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 
 ---
 
-## 🎥 Video Demo
-
-**Watch WaveScout in action:** [Full walkthrough showing search creation, job aggregation, filtering, and admin features]
-
-> **Note:** Upload your `Wavescout_demo.mp4` to YouTube and replace this line with the embed code!
-
-**Quick YouTube upload instructions:**
-1. Go to youtube.com/upload
-2. Upload `c:/Users/carol/OneDrive/Desktop/Wavescout screenshots/Wavescout_demo.mp4`
-3. Title: "WaveScout - Multi-Source Job Aggregator Demo"
-4. Set as "Unlisted" (not public, but anyone with link can view)
-5. Copy the embed code and replace this section
-
----
-
 ## 📸 Screenshots
 
 ### Dashboard - Real-Time Analytics
