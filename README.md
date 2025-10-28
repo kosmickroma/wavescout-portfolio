@@ -175,6 +175,140 @@ Render's free tier has CPU/memory limits. I solved this with:
 
 ---
 
+## 💻 Code Samples
+
+Want to see my code quality? Here are some real examples from WaveScout:
+
+### Data Normalization - Salary Parsing
+
+Clean Python showing regex, edge case handling, and data standardization:
+
+```python
+def parse_salary(salary_text):
+    """
+    Parse salary strings into structured data
+    Handles: $80k-$120k, $50/hour, $100,000-$150,000
+    Returns: (min, max, type) tuple
+    """
+    if not salary_text or 'not specified' in salary_text.lower():
+        return (None, None, 'unknown')
+
+    clean_text = salary_text.replace('$', '').replace(',', '').replace('K', 'k')
+
+    # Detect hourly vs yearly
+    if 'hour' in clean_text.lower() or '/hr' in clean_text.lower():
+        salary_type = 'hourly'
+        numbers = re.findall(r'\d+', clean_text)
+        if len(numbers) >= 2:
+            return (int(numbers[0]), int(numbers[1]), salary_type)
+        elif len(numbers) == 1:
+            return (int(numbers[0]), int(numbers[0]), salary_type)
+    else:
+        salary_type = 'yearly'
+        numbers = re.findall(r'\d+', clean_text)
+        if len(numbers) >= 2:
+            # Handle "k" notation (80k = 80,000)
+            min_sal = int(numbers[0]) * 1000 if 'k' in clean_text.lower() else int(numbers[0])
+            max_sal = int(numbers[1]) * 1000 if 'k' in clean_text.lower() else int(numbers[1])
+            return (min_sal, max_sal, salary_type)
+        elif len(numbers) == 1:
+            sal = int(numbers[0]) * 1000 if 'k' in clean_text.lower() else int(numbers[0])
+            return (sal, sal, salary_type)
+
+    return (None, None, 'unknown')
+```
+
+### Anti-Bot Techniques - Human-Like Behavior
+
+Stealth patterns to avoid detection:
+
+```python
+def random_delay(min_sec=2, max_sec=5):
+    """
+    Random delays between actions mimic human behavior
+    Prevents pattern-based detection
+    """
+    delay = random.uniform(min_sec, max_sec)
+    time.sleep(delay)
+
+def human_scroll(page):
+    """
+    Simulates natural scrolling patterns
+    Scroll down, scroll down more, scroll back up slightly
+    """
+    try:
+        page.evaluate("window.scrollBy(0, 400)")
+        time.sleep(0.5)
+        page.evaluate("window.scrollBy(0, 400)")
+        time.sleep(0.5)
+        page.evaluate("window.scrollBy(0, -200)")  # Natural "read back up" behavior
+        time.sleep(0.3)
+    except:
+        pass  # Fail silently if page doesn't support scrolling
+```
+
+### Database Architecture - SQLAlchemy Models
+
+Production-ready ORM design with proper relationships:
+
+```python
+class SavedSearch(Base):
+    """
+    User's saved job search queries
+    One-to-many relationship with Job listings
+    """
+    __tablename__ = 'saved_searches'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    search_query = Column(String(255), nullable=False)
+    is_active = Column(Boolean, default=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    last_run_at = Column(DateTime, nullable=True)
+
+    # Relationships with cascade delete
+    user = relationship('User', back_populates='saved_searches')
+    jobs = relationship('Job', back_populates='search', cascade='all, delete-orphan')
+
+class Job(Base):
+    """
+    Individual job listing scraped from job boards
+    Belongs to one SavedSearch
+    """
+    __tablename__ = 'jobs'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    search_id = Column(Integer, ForeignKey('saved_searches.id'), nullable=False)
+
+    # Increased column sizes to prevent truncation errors in production
+    job_title = Column(String(500), nullable=False)
+    company = Column(String(500), nullable=False)
+    location = Column(String(500), nullable=True)
+    job_description = Column(Text, nullable=True)
+    job_url = Column(Text, unique=True, nullable=False)  # Unique constraint prevents duplicates
+
+    salary_min = Column(Integer, nullable=True)
+    salary_max = Column(Integer, nullable=True)
+    salary_type = Column(String(20), nullable=True)
+
+    posted_date = Column(String(255), nullable=True)
+    easy_apply = Column(Boolean, default=False)
+    scraped_at = Column(DateTime, default=datetime.utcnow)
+
+    search = relationship('SavedSearch', back_populates='jobs')
+```
+
+**These samples demonstrate:**
+- ✅ Clean, well-commented Python code
+- ✅ Proper error handling and edge cases
+- ✅ Database design with proper relationships
+- ✅ Anti-detection techniques for web scraping
+- ✅ Production-ready architecture patterns
+
+*Full codebase available for review with NDA.*
+
+---
+
 ## 📊 Project Metrics
 
 | Metric | Result |
