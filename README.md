@@ -61,23 +61,50 @@ Modern job boards are JavaScript-heavy, use anti-bot protection, and require com
 
 ---
 
+## 🎥 Video Demo
+
+**Watch WaveScout in action:** [Full walkthrough showing search creation, job aggregation, filtering, and admin features]
+
+> **Note:** Upload your `Wavescout_demo.mp4` to YouTube and replace this line with the embed code!
+
+**Quick YouTube upload instructions:**
+1. Go to youtube.com/upload
+2. Upload `c:/Users/carol/OneDrive/Desktop/Wavescout screenshots/Wavescout_demo.mp4`
+3. Title: "WaveScout - Multi-Source Job Aggregator Demo"
+4. Set as "Unlisted" (not public, but anyone with link can view)
+5. Copy the embed code and replace this section
+
+---
+
 ## 📸 Screenshots
 
-### Dashboard Overview
+### Dashboard - Real-Time Analytics
 ![Dashboard](screenshots/dashboard.png)
-*Real-time statistics showing 42 jobs aggregated from 2 sources*
+*972 jobs aggregated from 2 sources with real-time stats, Beta badge, and professional UI*
 
-### Job Search Interface
-![Search](screenshots/create-search.png)
-*Simple, intuitive search creation - instant results if search exists*
+### Create New Search
+![New Search](screenshots/newsearch.png)
+*Simple search creation - instant results if search exists in database*
 
-### Job Listings with Advanced Filtering
-![Listings](screenshots/job-listings.png)
-*Clean job cards with source badges, salary info, and easy apply indicators*
+### Job Listings with Smart Filtering
+![Job Listings](screenshots/joblistings.png)
+*Clean job cards with source badges, salary ranges, location, and easy apply indicators. One-click filtering by newest, oldest, or highest salary*
 
-### Search Results & Stats
-![Results](screenshots/search-results.png)
-*Live stats showing Source 1 (Indeed): 24 jobs, Source 2 (Dice): 18 jobs*
+### Search Results - Your Jobs
+![Your Jobs](screenshots/yourjobs.png)
+*Personalized job search results with saved searches and quick access to all opportunities*
+
+### Try Demo Feature
+![Try Demo](screenshots/trydemo.png)
+*Pre-populated demo searches for new users to experience the platform instantly*
+
+### How It Works
+![How It Works](screenshots/how%20it%20works.png)
+*Clear explanation of the platform's value proposition and workflow*
+
+### JavaScript Developer Search Example
+![JavaScript Jobs](screenshots/javascript.png)
+*Real job aggregation results showing diverse opportunities from multiple sources*
 
 ---
 
@@ -168,6 +195,7 @@ Render's free tier has CPU/memory limits. I solved this with:
 | Metric | Result |
 |--------|--------|
 | **Scraping Success Rate** | 100% |
+| **Total Jobs Aggregated** | 972+ opportunities |
 | **Response Time** | Instant for existing searches |
 | **Jobs per Search** | 45+ aggregated opportunities |
 | **Auto-Update Frequency** | Hourly (via local scheduler) |
