@@ -3,8 +3,8 @@
 > **Professional web scraping portfolio piece** showcasing advanced automation, anti-bot techniques, hybrid cloud architecture, and production deployment capabilities.
 
 [![Live Demo](https://img.shields.io/badge/🌊_Live_Demo-Try_It_Now-blue?style=for-the-badge)](https://wavescout.onrender.com)
-[![Hire Me](https://img.shields.io/badge/💼_Available_for_Hire-Upwork-success?style=for-the-badge)](https://www.upwork.com/freelancers/~019e1234567890)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/koryrkarp/)
+[![Portfolio](https://img.shields.io/badge/🔗_Portfolio-linktr.ee-39E09B?style=for-the-badge)](https://linktr.ee/korykarp)
 
 ---
 
